@@ -25,7 +25,7 @@ public class UserValidatorHelper {
      * @return whether it is a valid firstName
      */
     public static boolean isValidFirstName(String firstName) {
-        return !firstName.isEmpty() && firstName.length() > MINIMUM_FIRST_NAME_LENGTH;
+        return firstName != null && !firstName.isEmpty() && firstName.length() > MINIMUM_FIRST_NAME_LENGTH;
     }
 
     /**
@@ -34,7 +34,7 @@ public class UserValidatorHelper {
      * @return whether it is a valid lastName
      */
     public static boolean isValidLastName(String lastName) {
-        return !lastName.isEmpty() && lastName.length() > MINIMUM_LAST_NAME_LENGTH;
+        return lastName != null && !lastName.isEmpty() && lastName.length() > MINIMUM_LAST_NAME_LENGTH;
     }
 
     /**
@@ -52,9 +52,16 @@ public class UserValidatorHelper {
      * @return whether is is a valid MapAddress
      */
     public static boolean isValidMapAddress(MapAddress mapAddress) {
-        return !(mapAddress.getStreetAddress().isEmpty() ||
-                mapAddress.getCity().isEmpty() ||
+        return !(mapAddress == null ||
+
+                mapAddress.getStreetAddress() == null ||
+                mapAddress.getZipcode() == null ||
+                mapAddress.getCountry() == null ||
+                mapAddress.getCity() == null ||
+
+                mapAddress.getStreetAddress().isEmpty() ||
                 mapAddress.getZipcode().isEmpty() ||
-                mapAddress.getCountry().isEmpty());
+                mapAddress.getCountry().isEmpty() ||
+                mapAddress.getCity().isEmpty());
     }
 }

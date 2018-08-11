@@ -6,6 +6,15 @@ public class MapAddress {
     private String zipcode;
     private String country;
 
+    public MapAddress() {}
+
+    public MapAddress(String streetAddress, String city, String zipcode, String country) {
+        this.streetAddress = streetAddress;
+        this.city = city;
+        this.zipcode = zipcode;
+        this.country = country;
+    }
+
     public String getStreetAddress() {
         return streetAddress;
     }

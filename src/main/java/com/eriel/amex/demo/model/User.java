@@ -22,9 +22,21 @@ public class User {
 
     private String firstName;
     private String lastName;
+    private String email;
     private MapAddress address;
     private EyeColorEnum eyeColor;
 
+    public User(){}
+
+    public User(ObjectId id, String accountNumber, String email, String firstName, String lastName, MapAddress address, EyeColorEnum eyeColor) {
+        this.id = id;
+        this.accountNumber = accountNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.address = address;
+        this.eyeColor = eyeColor;
+    }
 
     public ObjectId getId() {
         return id;
@@ -56,6 +68,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAccountNumber() {

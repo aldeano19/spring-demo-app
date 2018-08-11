@@ -5,6 +5,14 @@ public class MinimalUserInfoDto {
     private String lastName;
     private MapAddress address;
 
+    public MinimalUserInfoDto() {}
+
+    public MinimalUserInfoDto(String firstName, String lastName, MapAddress address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+    }
+
     public String getFirstName() {
         return firstName;
     }

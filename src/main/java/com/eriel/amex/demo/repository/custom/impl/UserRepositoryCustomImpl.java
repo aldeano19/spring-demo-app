@@ -33,26 +33,13 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
         AggregationOperation match = Aggregation.match(Criteria.where(ACCOUNT_NUMBER_KEY).is(accountNumber));
 
         List<AggregationOperation> criteria = new ArrayList<>();
-        criteria.add(pop);
         criteria.add(match);
+        criteria.add(pop);
 
         TypedAggregation<User> aggregation = Aggregation.newAggregation(User.class, criteria);
         AggregationResults<MinimalUserInfoDto> results = mongoTemplate.aggregate(aggregation, MinimalUserInfoDto.class);
 
         return results.getUniqueMappedResult();
-
-//        MapAddress mapAddress = new MapAddress();
-//        mapAddress.setStreetAddress("1234 NE 56st");
-//        mapAddress.setCity("Miami");
-//        mapAddress.setZipcode("33334");
-//        mapAddress.setCountry("United States");
-//
-//        MinimalUserInfoDto minimalUserInfoDto = new MinimalUserInfoDto();
-//        minimalUserInfoDto.setFirstName("John");
-//        minimalUserInfoDto.setLastName("Doe");
-//        minimalUserInfoDto.setAddress(mapAddress);
-//
-//        return minimalUserInfoDto;
     }
 
 }

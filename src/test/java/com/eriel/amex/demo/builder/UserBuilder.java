@@ -2,7 +2,7 @@ package com.eriel.amex.demo.builder;
 
 import com.eriel.amex.demo.constants.EyeColorEnum;
 import com.eriel.amex.demo.dto.CreateUserDto;
-import com.eriel.amex.demo.dto.MapAddress;
+import com.eriel.amex.demo.dto.PostalAddress;
 import com.eriel.amex.demo.model.User;
 import org.bson.types.ObjectId;
 
@@ -14,7 +14,7 @@ public class UserBuilder {
     String lastName = "Doe";
     String email = "john.doe@gmail.com";
     EyeColorEnum eyeColor = EyeColorEnum.BROWN;
-    MapAddress address = new MapAddressBuilder().build();
+    PostalAddress address = new PostalAddressBuilder().build();
 
     public UserBuilder withId(ObjectId objectId){
         this.id = objectId;
@@ -46,7 +46,7 @@ public class UserBuilder {
         return this;
     }
 
-    public UserBuilder withAddress(MapAddress address){
+    public UserBuilder withAddress(PostalAddress address){
         this.address = address;
         return this;
     }

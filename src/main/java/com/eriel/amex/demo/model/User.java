@@ -1,9 +1,8 @@
 package com.eriel.amex.demo.model;
 
 import com.eriel.amex.demo.constants.EyeColorEnum;
-import com.eriel.amex.demo.dto.MapAddress;
+import com.eriel.amex.demo.dto.PostalAddress;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.StringSerializer;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -19,16 +18,15 @@ public class User {
     @Indexed(unique = true)
     private String accountNumber;
 
-
     private String firstName;
     private String lastName;
     private String email;
-    private MapAddress address;
+    private PostalAddress address;
     private EyeColorEnum eyeColor;
 
     public User(){}
 
-    public User(ObjectId id, String accountNumber, String email, String firstName, String lastName, MapAddress address, EyeColorEnum eyeColor) {
+    public User(ObjectId id, String accountNumber, String email, String firstName, String lastName, PostalAddress address, EyeColorEnum eyeColor) {
         this.id = id;
         this.accountNumber = accountNumber;
         this.firstName = firstName;
@@ -46,11 +44,11 @@ public class User {
         this.id = id;
     }
 
-    public MapAddress getAddress() {
+    public PostalAddress getAddress() {
         return address;
     }
 
-    public void setAddress(MapAddress address) {
+    public void setAddress(PostalAddress address) {
         this.address = address;
     }
 

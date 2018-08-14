@@ -3,6 +3,9 @@ package com.eriel.amex.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Spring application entry point.
+ */
 @SpringBootApplication
 public class DemoApplication {
 

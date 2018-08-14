@@ -1,7 +1,7 @@
 package com.eriel.amex.demo.helper;
 
 import com.eriel.amex.demo.constants.EyeColorEnum;
-import com.eriel.amex.demo.dto.MapAddress;
+import com.eriel.amex.demo.dto.PostalAddress;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -47,21 +47,21 @@ public class UserValidatorHelper {
     }
 
     /**
-     * Check all required properties of  MapAddress exist.
-     * @param mapAddress
-     * @return whether is is a valid MapAddress
+     * Check all required properties of  PostalAddress exist.
+     * @param postalAddress
+     * @return whether is is a valid PostalAddress
      */
-    public static boolean isValidMapAddress(MapAddress mapAddress) {
-        return !(mapAddress == null ||
+    public static boolean isValidMapAddress(PostalAddress postalAddress) {
+        return !(postalAddress == null ||
 
-                mapAddress.getStreetAddress() == null ||
-                mapAddress.getZipcode() == null ||
-                mapAddress.getCountry() == null ||
-                mapAddress.getCity() == null ||
+                postalAddress.getStreetAddress() == null ||
+                postalAddress.getZipcode() == null ||
+                postalAddress.getCountry() == null ||
+                postalAddress.getCity() == null ||
 
-                mapAddress.getStreetAddress().isEmpty() ||
-                mapAddress.getZipcode().isEmpty() ||
-                mapAddress.getCountry().isEmpty() ||
-                mapAddress.getCity().isEmpty());
+                postalAddress.getStreetAddress().isEmpty() ||
+                postalAddress.getZipcode().isEmpty() ||
+                postalAddress.getCountry().isEmpty() ||
+                postalAddress.getCity().isEmpty());
     }
 }

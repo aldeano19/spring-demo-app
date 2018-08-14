@@ -2,13 +2,13 @@ package com.eriel.amex.demo.builder;
 
 import com.eriel.amex.demo.constants.EyeColorEnum;
 import com.eriel.amex.demo.dto.CreateUserDto;
-import com.eriel.amex.demo.dto.MapAddress;
+import com.eriel.amex.demo.dto.PostalAddress;
 
 public class CreateUserDtoBuilder {
     String firstName = "John";
     String lastName = "Doe";
     String email = "john.doe@gmail.com";
-    MapAddress address = new MapAddressBuilder().build();
+    PostalAddress address = new PostalAddressBuilder().build();
     EyeColorEnum eyeColor = EyeColorEnum.BROWN;
 
     public CreateUserDtoBuilder withFirstName(String firstName){
@@ -26,7 +26,7 @@ public class CreateUserDtoBuilder {
         return this;
     }
 
-    public CreateUserDtoBuilder withAddress(MapAddress address){
+    public CreateUserDtoBuilder withAddress(PostalAddress address){
         this.address = address;
         return this;
     }

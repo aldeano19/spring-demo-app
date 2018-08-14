@@ -1,6 +1,6 @@
 package com.eriel.amex.demo.helper;
 
-import com.eriel.amex.demo.dto.MapAddress;
+import com.eriel.amex.demo.dto.PostalAddress;
 
 public class ExceptionMessageConstructor {
     public static String makeMessageBadAccountNumberFormat(String givenAccountNumber){
@@ -8,7 +8,7 @@ public class ExceptionMessageConstructor {
     }
 
     public static String makeMessageAccountNumberDoesNotExists(String givenAccountNumber){
-        return String.format("The account number < %s > , does not exist in the database.", givenAccountNumber);
+        return String.format("The account number < %s > , does not exist.", givenAccountNumber);
     }
 
     public static String makeMessageBadFirstName(String firstName) {
@@ -37,10 +37,10 @@ public class ExceptionMessageConstructor {
         return String.format("Eye Color cannot be null.");
     }
 
-    public static String makeMessageBadMapAddress(MapAddress mapAddress) {
-        if(mapAddress == null){
+    public static String makeMessageBadMapAddress(PostalAddress postalAddress) {
+        if(postalAddress == null){
             return String.format("Address cannot be null.");
         }
-        return String.format("Invalid Address: < %s >", mapAddress.toString());
+        return String.format("Invalid Address: < %s >", postalAddress.toString());
     }
 }

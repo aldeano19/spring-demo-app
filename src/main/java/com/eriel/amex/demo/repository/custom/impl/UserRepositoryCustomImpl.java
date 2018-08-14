@@ -1,6 +1,5 @@
 package com.eriel.amex.demo.repository.custom.impl;
 
-import com.eriel.amex.demo.dto.MapAddress;
 import com.eriel.amex.demo.dto.MinimalUserInfoDto;
 import com.eriel.amex.demo.model.User;
 import com.eriel.amex.demo.repository.custom.UserRepositoryCustom;
@@ -21,11 +20,7 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
     MongoTemplate mongoTemplate;
 
     /**
-     * A custom implementation of this query is required in order to limit the amount of data extracted from the user
-     * by using adding a ProjectionOperation to the list of Criteria.
-     *
-     * @param accountNumber The unique account number to match.
-     * @return Some information about the user: first name, last name, address
+     * @inheritDoc
      */
     @Override
     public MinimalUserInfoDto getMinimalUserInfo(String accountNumber) {

@@ -3,17 +3,17 @@ package com.eriel.amex.demo.dto;
 import com.eriel.amex.demo.constants.EyeColorEnum;
 
 /**
- * A POJO to insert a new User into the database.
+ * A Data Transfer Object used to gather data from the client and create a new User.
  */
 public class CreateUserDto {
 
     private String firstName;
     private String lastName;
     private String email;
-    private MapAddress address;
+    private PostalAddress address;
     private EyeColorEnum eyeColor;
 
-    public CreateUserDto(String firstName, String lastName, String email, MapAddress address, EyeColorEnum eyeColor) {
+    public CreateUserDto(String firstName, String lastName, String email, PostalAddress address, EyeColorEnum eyeColor) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -37,11 +37,11 @@ public class CreateUserDto {
         this.lastName = lastName;
     }
 
-    public MapAddress getAddress() {
+    public PostalAddress getAddress() {
         return address;
     }
 
-    public void setAddress(MapAddress address) {
+    public void setAddress(PostalAddress address) {
         this.address = address;
     }
 

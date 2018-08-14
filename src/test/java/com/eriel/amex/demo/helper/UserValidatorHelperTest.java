@@ -1,8 +1,8 @@
 package com.eriel.amex.demo.helper;
 
-import com.eriel.amex.demo.builder.MapAddressBuilder;
+import com.eriel.amex.demo.builder.PostalAddressBuilder;
 import com.eriel.amex.demo.constants.EyeColorEnum;
-import com.eriel.amex.demo.dto.MapAddress;
+import com.eriel.amex.demo.dto.PostalAddress;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -71,8 +71,8 @@ public class UserValidatorHelperTest {
 
     @Test
     public void isValidMapAddress_withBadMapAddress_returnFalse() {
-        MapAddress fakeMapAddress = new MapAddressBuilder().withCity(null).build();
+        PostalAddress fakePostalAddress = new PostalAddressBuilder().withCity(null).build();
 
-        assertFalse(UserValidatorHelper.isValidMapAddress(fakeMapAddress));
+        assertFalse(UserValidatorHelper.isValidMapAddress(fakePostalAddress));
     }
 }

@@ -2,9 +2,10 @@ package com.eriel.amex.demo.service.impl;
 
 import com.eriel.amex.demo.constants.EyeColorEnum;
 import com.eriel.amex.demo.dto.CreateUserDto;
-import com.eriel.amex.demo.dto.MapAddress;
+import com.eriel.amex.demo.dto.PostalAddress;
 import com.eriel.amex.demo.dto.MinimalUserInfoDto;
 import com.eriel.amex.demo.exceptions.AccountDoesNotExistException;
+import com.eriel.amex.demo.exceptions.InvalidInputObjectData;
 import com.eriel.amex.demo.helper.AccountNumberGenerator;
 import com.eriel.amex.demo.helper.ExceptionMessageConstructor;
 import com.eriel.amex.demo.helper.UserValidatorHelper;
@@ -32,7 +33,7 @@ public class UserServiceImpl implements UserService {
         // Validate the format of the userAccount -> Throw exception if invalid format
         if(!UserValidatorHelper.isValidAccountNumber(userAccount)) {
             String errorMessage = ExceptionMessageConstructor.makeMessageBadAccountNumberFormat(userAccount);
-            throw new IllegalArgumentException(errorMessage);
+            throw new InvalidInputObjectData(errorMessage);
         }
 
         // If result is null, there is no account with that number. Throw exception and show 404 to user.
@@ -51,30 +52,33 @@ public class UserServiceImpl implements UserService {
     public User createUser(CreateUserDto createUserDto) {
         String firstName = createUserDto.getFirstName();
         String lastName  = createUserDto.getLastName();
+        String email = createUserDto.getEmail();
         EyeColorEnum eyeColor = createUserDto.getEyeColor();
-        MapAddress mapAddress = createUserDto.getAddress();
+        PostalAddress postalAddress = createUserDto.getAddress();
 
         // Validate the data for the user
+        // TODO: Missing validation for email.
         if(!UserValidatorHelper.isValidFirstName(firstName)){
-            throw new IllegalArgumentException(ExceptionMessageConstructor.makeMessageBadFirstName(firstName));
+            throw new InvalidInputObjectData(ExceptionMessageConstructor.makeMessageBadFirstName(firstName));
         }
 
         if(!UserValidatorHelper.isValidLastName(lastName)){
-            throw new IllegalArgumentException(ExceptionMessageConstructor.makeMessageBadLastName(lastName));
+            throw new InvalidInputObjectData(ExceptionMessageConstructor.makeMessageBadLastName(lastName));
         }
 
         if(!UserValidatorHelper.isValidEyeColor(eyeColor)){
-            throw new IllegalArgumentException(ExceptionMessageConstructor.makeMessageBadEyeColor());
+            throw new InvalidInputObjectData(ExceptionMessageConstructor.makeMessageBadEyeColor());
         }
 
-        if(!UserValidatorHelper.isValidMapAddress(mapAddress)){
-            throw new IllegalArgumentException(ExceptionMessageConstructor.makeMessageBadMapAddress(mapAddress));
+        if(!UserValidatorHelper.isValidMapAddress(postalAddress)){
+            throw new InvalidInputObjectData(ExceptionMessageConstructor.makeMessageBadMapAddress(postalAddress));
         }
 
         User newUser = new User();
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
-        newUser.setAddress(mapAddress);
+        newUser.setEmail(email);
+        newUser.setAddress(postalAddress);
         newUser.setEyeColor(eyeColor);
         newUser.setAccountNumber(AccountNumberGenerator.generateAccountNumber(createUserDto));
 

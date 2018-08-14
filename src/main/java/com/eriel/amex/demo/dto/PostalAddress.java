@@ -1,14 +1,17 @@
 package com.eriel.amex.demo.dto;
 
-public class MapAddress {
+/**
+ * A wrapper to organize all the different String components of a Postal Address
+ */
+public class PostalAddress {
     private String streetAddress;
     private String city;
     private String zipcode;
     private String country;
 
-    public MapAddress() {}
+    public PostalAddress() {}
 
-    public MapAddress(String streetAddress, String city, String zipcode, String country) {
+    public PostalAddress(String streetAddress, String city, String zipcode, String country) {
         this.streetAddress = streetAddress;
         this.city = city;
         this.zipcode = zipcode;

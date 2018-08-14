@@ -1,12 +1,12 @@
 package com.eriel.amex.demo.builder;
 
-import com.eriel.amex.demo.dto.MapAddress;
+import com.eriel.amex.demo.dto.PostalAddress;
 import com.eriel.amex.demo.dto.MinimalUserInfoDto;
 
 public class MinimalUserInfoDtoBuilder {
     String firstName = "John";
     String lastName = "Doe";
-    MapAddress address = new MapAddressBuilder().build();
+    PostalAddress address = new PostalAddressBuilder().build();
 
     public MinimalUserInfoDtoBuilder withFirstName(String firstName){
         this.firstName = firstName;
@@ -18,7 +18,7 @@ public class MinimalUserInfoDtoBuilder {
         return this;
     }
 
-    public MinimalUserInfoDtoBuilder withAddressName(MapAddress address){
+    public MinimalUserInfoDtoBuilder withAddressName(PostalAddress address){
         this.address = address;
         return this;
     }

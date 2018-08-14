@@ -3,11 +3,11 @@ package com.eriel.amex.demo.dto;
 public class MinimalUserInfoDto {
     private String firstName;
     private String lastName;
-    private MapAddress address;
+    private PostalAddress address;
 
     public MinimalUserInfoDto() {}
 
-    public MinimalUserInfoDto(String firstName, String lastName, MapAddress address) {
+    public MinimalUserInfoDto(String firstName, String lastName, PostalAddress address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -29,11 +29,11 @@ public class MinimalUserInfoDto {
         this.lastName = lastName;
     }
 
-    public MapAddress getAddress() {
+    public PostalAddress getAddress() {
         return address;
     }
 
-    public void setAddress(MapAddress address) {
+    public void setAddress(PostalAddress address) {
         this.address = address;
     }
 }

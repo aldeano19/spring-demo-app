@@ -40,3 +40,16 @@ last name, and address. Read the data from an `in-memory database` or `propertie
 7. Deployment to a Google Cloud Compute Engine VM
 
 8. Read sensitive information from System Environment
+
+9. Created a multithreaded process to demonstrate implementation of synchronized method
+    * Upload a zip file with multiple spreadsheets
+    * Every row on each spreadsheet contains information to create a new User
+    * Every step of the process is logged to the same logfile using a Custom build Logging helper
+    * If the log method of that custom helper is not synchronized then the log file wil be unreadable
+    * Look at the examples int the root path of this repo to compare: `[synch]demo-spring-app.log` vs `[unsynch]demo-spring-app.log`
+    
+### Deployment method
+1. Using `gradle`, create a bootable jar file.
+2. Copy the file to the server.
+3. Run with `java -jar demo-1.jar`
+

@@ -5,6 +5,8 @@ import com.eriel.amex.demo.dto.MinimalUserInfoDto;
 import com.eriel.amex.demo.exceptions.AccountDoesNotExistException;
 import com.eriel.amex.demo.model.User;
 
+import java.util.List;
+
 public interface UserService {
 
     /**
@@ -20,4 +22,11 @@ public interface UserService {
      * @return The created entity
      */
     User createUser(CreateUserDto createUserDto);
+
+
+    /**
+     * Return all users
+     * @return users with all of their data
+     */
+    List<User> getAll();
 }

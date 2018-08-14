@@ -1,6 +1,7 @@
 package com.eriel.amex.demo.repository.custom.impl;
 
 import com.eriel.amex.demo.dto.MinimalUserInfoDto;
+import com.eriel.amex.demo.helper.LoggingHelper;
 import com.eriel.amex.demo.model.User;
 import com.eriel.amex.demo.repository.custom.UserRepositoryCustom;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepositoryCustomImpl implements UserRepositoryCustom {
+    private LoggingHelper loggingHelper = LoggingHelper.getInstance();
 
     static final String[] LIST_OF_FIELDS = {"firstName", "lastName", "address"};
     static final String ACCOUNT_NUMBER_KEY = "accountNumber";
@@ -24,6 +26,10 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
      */
     @Override
     public MinimalUserInfoDto getMinimalUserInfo(String accountNumber) {
+
+        String message = "Getting database results";
+        loggingHelper.logLine(message);
+
         ProjectionOperation pop = Aggregation.project(LIST_OF_FIELDS);
         AggregationOperation match = Aggregation.match(Criteria.where(ACCOUNT_NUMBER_KEY).is(accountNumber));
 
@@ -36,5 +42,4 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
 
         return results.getUniqueMappedResult();
     }
-
 }

@@ -1,6 +1,6 @@
 package com.eriel.amex.demo.builder;
 
-        import com.eriel.amex.demo.dto.PostalAddress;
+import com.eriel.amex.demo.dto.PostalAddress;
 
 public class PostalAddressBuilder {
     public String streetAddress = "123 NE 45 ST";

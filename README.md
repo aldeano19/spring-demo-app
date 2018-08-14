@@ -15,6 +15,7 @@ last name, and address. Read the data from an `in-memory database` or `propertie
     preferred on the problem description. 
 * MockMvc to perform web requests while testing
 * Mockito to mock Service and repository calls
+* Google Cloud 
 
 ### Development details taken into account
 
@@ -36,6 +37,6 @@ last name, and address. Read the data from an `in-memory database` or `propertie
  
 6. Swagger UI setup
 
-7. Deployment to a Google Cloud VM
+7. Deployment to a Google Cloud Compute Engine VM
 
 8. Read sensitive information from System Environment
